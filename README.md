@@ -221,8 +221,4 @@ This project is for educational purposes.
 
 
 
-* Give **DBML (database schema)**
-* OR **complete Spring Boot folder structure with code**
-* OR **React UI flow + pages design**
 
-Just tell 👍
