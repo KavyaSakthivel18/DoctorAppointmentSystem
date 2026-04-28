@@ -209,12 +209,6 @@ npm start
 
 ---
 
-## 👩‍💻 Contributors
-
-* Team Members (Add names here)
-
----
-
 ## 📜 License
 
 This project is for educational purposes.
