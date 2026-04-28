@@ -1,0 +1,32 @@
+services:
+  # Backend Service (Spring Boot Docker)
+  - type: web
+    name: medisync-backend
+    env: docker
+    repo: https://github.com/DivyadharshiniYuvaraj/MediSync
+    rootDir: backend
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+
+  # Frontend Service (Static Site)
+  - type: static
+    name: medisync-frontend
+    env: node
+    repo: https://github.com/DivyadharshiniYuvaraj/MediSync
+    rootDir: frontend
+    plan: free
+    buildCommand: npm install && npm run build
+    publishDir: build
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: medisync-backend
+          type: web
+          property: host
+        value: "https://${HOST}"
